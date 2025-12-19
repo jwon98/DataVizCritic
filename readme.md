@@ -52,12 +52,6 @@ Data Visualization Critic is a specialized language model fine-tuned to review P
 - **Training Loss:** 0.873 → 0.078 (91.1% reduction)
 - **Model:** Llama-3-8B-Instruct with LoRA fine-tuning
 
-**Example Detections:**
-- ✅ Truncated axes making small changes appear massive
-- ✅ Multiple testing without Bonferroni correction
-- ✅ Simpson's Paradox from aggregating across confounders
-- ✅ Correlation-causation confusion in observational data
-
 ---
 
 ## 🛠️ Technical Approach
@@ -90,14 +84,9 @@ dataviz-critic/
 ├── 2_model_training.ipynb       # Phase 2: LoRA fine-tuning
 ├── 3_demo_evaluation.ipynb      # Phase 3: Demo & evaluation
 ├── data/
-│   ├── training_data_combined.csv    # Training dataset (sample)
-│   └── evaluation_results.csv        # Test results
-├── assets/
-│   └── demo_screenshot.png           # Demo screenshot
+│   └── training_data_combined.csv    # Training dataset (sample)
 └── requirements.txt
 ```
-
-**Note:** The trained model weights (~20MB LoRA adapters) are stored separately due to size. See [Model Weights](#model-weights) section.
 
 ---
 
@@ -145,9 +134,8 @@ Open `3_demo_evaluation.ipynb` in Google Colab or Jupyter:
 
 ### Training Data
 - **738 total examples:**
-  - 390 negative examples (flawed code with errors)
+  - 690 negative examples (flawed code with errors)
   - 48 positive examples (good code demonstrating best practices)
-  - 300 examples from V1 dataset
 - **Coverage:** 15 error types across 4 domains (healthcare, business, education, social science)
 - **Format:** Instruction-following (user query → assistant critique)
 
@@ -164,14 +152,14 @@ Training:
 - Batch size: 4 (effective)
 - Learning rate: 2e-4 (cosine schedule)
 - Quantization: 4-bit NF4
-- Hardware: Google Colab T4 GPU (free)
+- Hardware: Google Colab T4 GPU
 ```
 
 ### Reproduction
 To reproduce training:
 1. Run `1_data_generation.ipynb` to generate training data
 2. Run `2_model_training.ipynb` to fine-tune the model
-3. Training takes ~3-4 hours on a T4 GPU
+3. Training takes ~5-7 hours on a T4 GPU
 
 ---
 
@@ -182,3 +170,4 @@ To reproduce training:
 - **Base Model:** Meta's Llama-3-8B-Instruct
 - **Training Platform:** Google Colab (free T4 GPU)
 - **Libraries:** HuggingFace Transformers, PEFT, Gradio
+
