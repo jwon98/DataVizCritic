@@ -163,6 +163,20 @@ To reproduce training:
 
 ---
 
+## 🔗 Model Weights
+
+Due to GitHub file size limits, trained model weights are hosted separately:
+
+**Download Link:** [Google Drive Link] *(https://drive.google.com/drive/folders/1GcbCbLfZL7vt0vxDf11GcQbu1LrMLdPS?usp=drive_link)*
+
+**Size:** ~20MB (LoRA adapters only)
+
+**To use downloaded weights:**
+1. Place `final_model/` folder in project root
+2. Update model path in `3_demo_evaluation.ipynb` cell 2
+
+---
+
 ## 🙏 Acknowledgments
 
 - **Course:** COMS 4995 - Applied Machine Learning, Columbia University
@@ -170,4 +184,5 @@ To reproduce training:
 - **Base Model:** Meta's Llama-3-8B-Instruct
 - **Training Platform:** Google Colab (free T4 GPU)
 - **Libraries:** HuggingFace Transformers, PEFT, Gradio
+
 
