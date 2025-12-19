@@ -48,7 +48,7 @@ Data Visualization Critic is a specialized language model fine-tuned to review P
 
 **Model Performance:**
 - **Training Data:** 738 examples (390 negative + 48 positive)
-- **Detection Accuracy:** 100% on held-out test set (8/8 error types)
+- **Detection:** Identified error types on held-out test set
 - **Training Loss:** 0.873 → 0.078 (91.1% reduction)
 - **Model:** Llama-3-8B-Instruct with LoRA fine-tuning
 
@@ -60,7 +60,7 @@ Data Visualization Critic is a specialized language model fine-tuned to review P
 - **Base Model:** Llama-3-8B-Instruct
 - **Fine-tuning Method:** LoRA (Low-Rank Adaptation)
 - **Quantization:** 4-bit (NF4) for memory efficiency
-- **Training:** 3 epochs on 738 examples (~3.5 hours on T4 GPU)
+- **Training:** 3 epochs on 738 examples
 
 ### Pipeline
 1. **Data Generation:** Synthetic examples using Llama-3-8B
@@ -72,7 +72,7 @@ Data Visualization Critic is a specialized language model fine-tuned to review P
 - PyTorch + HuggingFace Transformers
 - PEFT (Parameter-Efficient Fine-Tuning)
 - Gradio for demo interface
-- Google Colab for training (free T4 GPU)
+- Google Colab for training (T4 GPU)
 
 ---
 
@@ -80,7 +80,8 @@ Data Visualization Critic is a specialized language model fine-tuned to review P
 ```
 dataviz-critic/
 ├── README.md
-├── 1_data_generation.ipynb      # Phase 1: Generate training data
+├── 1_data_generation_1.ipynb    # Phase 1: Generate training data (V1)
+├── 1_data_generation_2.ipynb    # Phase 1: Generate training data (V2)
 ├── 2_model_training.ipynb       # Phase 2: LoRA fine-tuning
 ├── 3_demo_evaluation.ipynb      # Phase 3: Demo & evaluation
 ├── data/
@@ -184,5 +185,3 @@ Due to GitHub file size limits, trained model weights are hosted separately:
 - **Base Model:** Meta's Llama-3-8B-Instruct
 - **Training Platform:** Google Colab (free T4 GPU)
 - **Libraries:** HuggingFace Transformers, PEFT, Gradio
-
-
